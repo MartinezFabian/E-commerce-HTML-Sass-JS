@@ -1,0 +1,16 @@
+.header {
+  padding: 2rem 0;
+  margin-bottom: 6rem;
+
+  &__bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 4rem;
+    height: 4rem;
+  }
+}

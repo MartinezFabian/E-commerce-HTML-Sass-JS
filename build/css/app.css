@@ -366,3 +366,18 @@ p {
   font-size: 1.6rem;
   line-height: 1.8;
 }
+
+.header {
+  padding: 2rem 0;
+  margin-bottom: 6rem;
+}
+.header__bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__logo {
+  width: 4rem;
+  height: 4rem;
+}
