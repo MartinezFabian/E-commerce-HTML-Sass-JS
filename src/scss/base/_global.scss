@@ -1,0 +1,23 @@
+@use "variables" as v;
+
+html {
+  box-sizing: border-box; // border box para que los elementos midan exactamente lo que se especifica en el width y height
+  font-size: 62.5%; /* 1rem = 10px */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: v.$main-font;
+  font-size: 1.6rem;
+}
+
+img {
+  max-width: 100%; //ancho máximo de la imagen al 100% del ancho del contenedor padre.
+  display: block;
+  height: auto;
+}
