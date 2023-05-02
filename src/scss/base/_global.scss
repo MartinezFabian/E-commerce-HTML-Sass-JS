@@ -21,3 +21,9 @@ img {
   display: block;
   height: auto;
 }
+
+[class$="__container"] {
+  max-width: 120rem;
+  width: 90%; /* cuando el ancho sea menos de 1200px va a ocupar el 90% */
+  margin: 0 auto; /* centra el contenedor */
+}
