@@ -1,0 +1,20 @@
+@use "../../base/variables" as v;
+
+.products {
+  &__headings {
+    font-size: 3rem;
+    margin-bottom: 5rem;
+
+    @media (min-width: v.$desktop) {
+      font-size: 4rem;
+    }
+  }
+
+  &__grid {
+    @media (min-width: v.$desktop) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+}

@@ -381,3 +381,20 @@ p {
   width: 4rem;
   height: 4rem;
 }
+
+.products__headings {
+  font-size: 3rem;
+  margin-bottom: 5rem;
+}
+@media (min-width: 1024px) {
+  .products__headings {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .products__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+  }
+}
