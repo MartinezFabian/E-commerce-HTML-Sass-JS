@@ -448,3 +448,13 @@ p {
   font-size: 2rem;
   font-weight: 700;
 }
+.product__btn {
+  border: none;
+  background-color: #1d1d1d;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  cursor: pointer;
+  font-size: 2rem;
+  font-weight: 700;
+  border-radius: 1rem;
+}
