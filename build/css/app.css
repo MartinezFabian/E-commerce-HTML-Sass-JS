@@ -541,7 +541,8 @@ p {
   font-size: 2rem;
   font-weight: 700;
 }
-.product__btn {
+
+.btn {
   border: none;
   background-color: #1d1d1d;
   color: #fff;
@@ -551,13 +552,13 @@ p {
   font-weight: 700;
   border-radius: 1rem;
 }
-.product__btn--white {
+.btn--white {
   background-color: #fff;
   color: #1d1d1d;
   border: solid 1px #1d1d1d;
   width: 90%;
   padding: 1rem 1rem;
 }
-.product__btn--white:hover {
+.btn--white:hover {
   border-color: rgba(255, 0, 0, 0.664);
 }

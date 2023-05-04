@@ -44,27 +44,4 @@
     font-size: 2rem;
     font-weight: 700;
   }
-
-  &__btn {
-    border: none;
-    background-color: v.$primary-color;
-    color: v.$white;
-    padding: 1.5rem 1rem;
-    cursor: pointer;
-    font-size: 2rem;
-    font-weight: 700;
-    border-radius: 1rem;
-
-    &--white {
-      background-color: v.$white;
-      color: v.$primary-color;
-      border: solid 1px v.$primary-color;
-      width: 90%;
-      padding: 1rem 1rem;
-
-      &:hover {
-        border-color: v.$red;
-      }
-    }
-  }
 }
