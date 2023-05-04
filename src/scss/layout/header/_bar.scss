@@ -10,7 +10,15 @@
   }
 
   &__logo {
-    width: 4rem;
-    height: 4rem;
+    position: relative;
+
+    &-icon {
+      width: 4rem;
+      height: 4rem;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }
