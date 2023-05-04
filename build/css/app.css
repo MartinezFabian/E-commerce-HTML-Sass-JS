@@ -562,3 +562,12 @@ p {
 .btn--white:hover {
   border-color: rgba(255, 0, 0, 0.664);
 }
+
+.footer {
+  margin-top: 10rem;
+  border-top: solid 1px #e4e4e4;
+  padding: 4rem;
+}
+.footer__copyright {
+  text-align: center;
+}
