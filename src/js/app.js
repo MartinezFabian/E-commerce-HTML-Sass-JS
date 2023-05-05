@@ -1,8 +1,10 @@
 // variables
 const cart = document.querySelector(".cart");
+const cartProducts = document.querySelector(".cart__products");
 const cartIcon = document.querySelector(".header__logo-icon");
-const productList = document.querySelector(".products__grid");
+const productsGrid = document.querySelector(".products__grid");
 const btnClearCart = document.querySelector("#clear-cart");
+const products = [];
 
 //functions
 
@@ -10,7 +12,7 @@ registerEventListeners();
 
 function registerEventListeners() {
   cartIcon.addEventListener("click", toggleCart);
-  productList.addEventListener("click", addProduct);
+  productsGrid.addEventListener("click", addProduct);
 }
 
 function toggleCart() {
@@ -37,5 +39,59 @@ function readProductData(productHTML) {
     quantity: 1,
   };
 
-  console.log(productInfo);
+  //Agregar el objeto producto al arreglo products
+  products.push(productInfo);
+
+  addHTMLProductToCart();
+}
+
+//Agregar los productos al carrito
+function addHTMLProductToCart() {
+  //Limpiar el HTML del carrito
+  clearCartProductsHTML();
+
+  //Generar HTML del card Product y agregarlo al carrito
+  products.forEach((product) => {
+    const cardProduct = document.createElement("div");
+
+    cartProducts.insertAdjacentHTML(
+      "beforeend",
+      `
+        <div class="cart__product">
+        <div class="cart__info">
+          <span class="cart__info-quantity">1</span>
+          <img src=${product.image} class="cart__info-image">
+          <p class="cart__info-name">${product.name}</p>
+          <span class="cart__info-price">${product.price}</span>
+        </div>
+
+        <div class="cart__delete">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="cart__delete-icon"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.75 9.75l4.5 4.5m0-4.5l-4.5 4.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </div>
+      </div>
+      `
+    );
+  });
+}
+
+//eliminar todos los elementos hijos del contenedor cartProducts
+function clearCartProductsHTML() {
+  // Mientras exista un primer hijo en el contenedor cartProduct
+  while (cartProducts.firstChild) {
+    // Remover el primer hijo del contenedor cartProducts
+    cartProducts.removeChild(cartProducts.firstChild);
+  }
 }

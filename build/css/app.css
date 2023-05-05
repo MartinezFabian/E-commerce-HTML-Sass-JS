@@ -393,7 +393,6 @@ p {
   top: 5rem;
   right: 0;
   background-color: #fff;
-  width: 25rem;
   z-index: 1;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
   display: flex;
@@ -401,10 +400,11 @@ p {
   align-items: center;
   padding: 1rem;
   border-radius: 1rem;
+  width: 25rem;
 }
 @media (min-width: 768px) {
   .cart {
-    width: 40rem;
+    width: 50rem;
   }
 }
 .cart__count {
@@ -445,8 +445,11 @@ p {
   font-size: 1.6rem;
   font-weight: 700;
 }
-.cart__info_quantity {
+.cart__info-quantity {
   font-size: 1.6rem;
+}
+.cart__info-image {
+  display: none;
 }
 @media (min-width: 768px) {
   .cart__info-name {
@@ -458,6 +461,13 @@ p {
   }
   .cart__info_quantity {
     font-size: 1.8rem;
+  }
+  .cart__info-image {
+    display: unset;
+    width: 10rem;
+    height: 8rem;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
 }
 .cart__delete {
