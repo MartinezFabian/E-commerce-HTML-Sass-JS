@@ -30,6 +30,11 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
+    font-weight: 700;
+
+    &--red {
+      background-color: v.$red;
+    }
   }
 
   &__product {

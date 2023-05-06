@@ -4,6 +4,8 @@ const cartProducts = document.querySelector(".cart__products");
 const cartIcon = document.querySelector(".header__logo-icon");
 const productsGrid = document.querySelector(".products__grid");
 const btnClearCart = document.querySelector("#clear-cart");
+const productCounter = document.querySelector("#product-counter");
+const productCounterContainer = document.querySelector(".cart__count");
 const products = [];
 
 //functions
@@ -54,6 +56,7 @@ function readProductData(productHTML) {
   } else {
     //Agregar el objeto producto al arreglo products
     products.push(productInfo);
+    updateProductCounter();
   }
 
   addHTMLProductToCart();
@@ -109,5 +112,15 @@ function clearCartProductsHTML() {
   while (cartProducts.firstChild) {
     // Remover el primer hijo del contenedor cartProducts
     cartProducts.removeChild(cartProducts.firstChild);
+  }
+}
+
+function updateProductCounter() {
+  productCounter.textContent = products.length;
+
+  if (products.length > 0) {
+    productCounterContainer.classList.add("cart__count--red");
+  } else {
+    productCounterContainer.classList.remove("cart__count--red");
   }
 }
