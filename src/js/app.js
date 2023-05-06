@@ -39,8 +39,22 @@ function readProductData(productHTML) {
     quantity: 1,
   };
 
-  //Agregar el objeto producto al arreglo products
-  products.push(productInfo);
+  //Verificar si el producto ya existe en el array products
+  const productExist = products.some(
+    (product) => product.id === productInfo.id
+  );
+
+  if (productExist) {
+    //obtener el indice del producto que ya existe para actualizar la cantidad
+    const index = products.findIndex(
+      (product) => product.id === productInfo.id
+    );
+
+    products[index].quantity++;
+  } else {
+    //Agregar el objeto producto al arreglo products
+    products.push(productInfo);
+  }
 
   addHTMLProductToCart();
 }
@@ -52,6 +66,7 @@ function addHTMLProductToCart() {
 
   //Generar HTML del card Product y agregarlo al carrito
   products.forEach((product) => {
+    const { image, name, price, id, quantity } = product;
     const cardProduct = document.createElement("div");
 
     cartProducts.insertAdjacentHTML(
@@ -59,10 +74,10 @@ function addHTMLProductToCart() {
       `
         <div class="cart__product">
         <div class="cart__info">
-          <span class="cart__info-quantity">1</span>
-          <img src=${product.image} class="cart__info-image">
-          <p class="cart__info-name">${product.name}</p>
-          <span class="cart__info-price">${product.price}</span>
+          <img src=${image} class="cart__info-image">
+          <p class="cart__info-name">${name}</p>
+          <span class="cart__info-quantity">${quantity} ud.</span>
+          <span class="cart__info-price">${price}</span>
         </div>
 
         <div class="cart__delete">
@@ -73,6 +88,7 @@ function addHTMLProductToCart() {
             stroke-width="1.5"
             stroke="currentColor"
             class="cart__delete-icon"
+            data-id="${id}"
           >
             <path
               stroke-linecap="round"
