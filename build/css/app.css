@@ -400,7 +400,7 @@ p {
   align-items: center;
   padding: 1rem;
   border-radius: 1rem;
-  width: 25rem;
+  width: 28rem;
 }
 @media (min-width: 768px) {
   .cart {
@@ -443,14 +443,14 @@ p {
   gap: 3rem;
 }
 .cart__info-name {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 .cart__info-price {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 700;
 }
 .cart__info-quantity {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 }
 .cart__info-image {
   display: none;
