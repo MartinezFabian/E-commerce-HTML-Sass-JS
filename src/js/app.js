@@ -6,7 +6,7 @@ const productsGrid = document.querySelector(".products__grid");
 const btnClearCart = document.querySelector("#clear-cart");
 const productCounter = document.querySelector("#product-counter");
 const productCounterContainer = document.querySelector(".cart__count");
-const products = [];
+let products = [];
 
 //functions
 
@@ -15,6 +15,7 @@ registerEventListeners();
 function registerEventListeners() {
   cartIcon.addEventListener("click", toggleCart);
   productsGrid.addEventListener("click", addProduct);
+  cartProducts.addEventListener("click", deleteProduct);
 }
 
 function toggleCart() {
@@ -28,6 +29,24 @@ function addProduct(e) {
     //obtenemos el elemento HTML que contiene todo el producto
     const productHTML = e.target.parentElement.parentElement;
     readProductData(productHTML);
+  }
+}
+
+function deleteProduct(e) {
+  // Verifica si el elemento que ha desencadenado el evento tiene la clase "cart__delete-icon"
+  if (e.target.classList.contains("cart__delete-icon")) {
+    // Obtiene el valor del atributo 'data-id' del elemento que se debe eliminar
+    const idProductToBeRemoved = e.target.getAttribute("data-id");
+
+    // obtener un nuevo array sin el producto que tiene el mismo 'id' que el elemento a eliminar
+    products = products.filter(
+      (product) => product.id !== idProductToBeRemoved
+    );
+
+    // Actualiza la representación visual del carrito de compras
+    updateCartHTML();
+    // Actualiza el contador de productos
+    updateProductCounter();
   }
 }
 
@@ -59,15 +78,14 @@ function readProductData(productHTML) {
     updateProductCounter();
   }
 
-  addHTMLProductToCart();
+  updateCartHTML();
 }
 
-//Agregar los productos al carrito
-function addHTMLProductToCart() {
+function updateCartHTML() {
   //Limpiar el HTML del carrito
   clearCartProductsHTML();
 
-  //Generar HTML del card Product y agregarlo al carrito
+  //Generar HTML para cada product del array y agregarlo al carrito
   products.forEach((product) => {
     const { image, name, price, id, quantity } = product;
     const cardProduct = document.createElement("div");
