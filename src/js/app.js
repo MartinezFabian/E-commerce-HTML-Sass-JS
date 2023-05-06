@@ -16,6 +16,11 @@ function registerEventListeners() {
   cartIcon.addEventListener("click", toggleCart);
   productsGrid.addEventListener("click", addProduct);
   cartProducts.addEventListener("click", deleteProduct);
+  btnClearCart.addEventListener("click", () => {
+    products = []; //vaciar array
+    clearCartProductsHTML(); //limpiar HTML del carrito
+    updateProductCounter(); // Actualiza el contador de productos
+  });
 }
 
 function toggleCart() {
